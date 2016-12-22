@@ -1,0 +1,25 @@
+# Maintainer: Michael Egger <michael.egger@tsn.at>
+
+pkgname=iceweasel
+pkgver=50.1.0
+pkgrel=1
+pkgdesc="A libre version of Debian Iceweasel, the standalone web browser based on Mozilla Firefox."
+arch=('i686' 'x86_64')
+url="https://wiki.parabola.nu/$pkgname"
+license=('BSD')
+provides=('iceweasel')
+depends=(alsa-lib dbus-glib ffmpeg gtk2 gtk3 hunspell icu=58.2 libevent libvpx=1.6.0 libxt mime-types mozilla-common nss sqlite startup-notification ttf-font)
+optdepends=('networkmanager: Location detection via available WiFi networks'
+            'libnotify: Notification integration'
+            'upower: Battery API')
+options=('!strip')
+source=(https://repomirror.parabola.nu/pool/parabola_gnu+linux/iceweasel-1:$pkgver.deb1-1-$arch.pkg.tar.xz)
+sha256sums=('fedd33cbef7c64f16ee99d8e3a677f57e090ac9daba29cdf41ab7675ee586e4a')
+
+package() {
+  tar xJvf ${srcdir}/iceweasel-1:$pkgver.deb1-1-$arch.pkg.tar.xz -C ${pkgdir}/
+}
+
+# vim:set ts=2 sw=2 et:
+
+
